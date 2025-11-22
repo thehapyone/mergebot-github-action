@@ -58,21 +58,21 @@ jobs:
 
 ## Inputs
 
-| Name | Required | Description |
-| --- | --- | --- |
-| `github-app-id` | ✅ | GitHub App ID created during Mergebot onboarding. |
-| `github-app-private-key` | ✅ | Multiline private key (PEM) for the Mergebot App; store as a secret. |
-| `github-app-installation-id` |  | Override if auto-discovery fails (self-hosted/GHE). |
-| `config-path` |  | Path (relative to the workspace) to a Mergebot config. When omitted the action targets the current repo via `--project`. |
-| `project` |  | Manually set the `owner/repo` slug for `--project`. Defaults to `${{ github.repository }}`. |
-| `workers` |  | Number of worker threads passed to `mergebot ondemand`. |
-| `max-concurrency` |  | Limit concurrent PRs/projects processed per run. |
-| `log-level` |  | Mergebot log level (`info`, `debug`, `warn`). Default `info`. |
-| `mergebot-command` |  | Advanced: replace `ondemand` with any other Mergebot subcommand. |
-| `extra-args` |  | Additional CLI flags, appended verbatim (split on whitespace). |
-| `azure-api-key` / `azure-api-base` / `azure-api-version` |  | Optional Azure/OpenAI credentials for LLM providers. |
-| `requests-ca-bundle` |  | Path to a CA bundle when routing through corporate proxies. |
-| `dry-run` |  | When `true`, the action prints the Mergebot command instead of running it (useful for CI validation). |
+|Name|Required|Description|
+|---|---|---|
+|`github-app-id`|✅|GitHub App ID created during Mergebot onboarding.|
+|`github-app-private-key`|✅|Multiline private key (PEM) for the Mergebot App; store as a secret.|
+|`github-app-installation-id`||Override if auto-discovery fails (self-hosted/GHE).|
+|`config-path`||Path (relative to the workspace) to a Mergebot config. When omitted the action targets the current repo via `--project`.|
+|`project`||Manually set the `owner/repo` slug for `--project`. Defaults to `${{ github.repository }}`.|
+|`workers`||Number of worker threads passed to `mergebot ondemand`.|
+|`max-concurrency`||Limit concurrent PRs/projects processed per run.|
+|`log-level`||Mergebot log level (`info`, `debug`, `warn`). Default `info`.|
+|`mergebot-command`||Advanced: replace `ondemand` with any other Mergebot subcommand.|
+|`extra-args`||Additional CLI flags, appended verbatim (split on whitespace).|
+|`azure-api-key` / `azure-api-base` / `azure-api-version`||Optional Azure/OpenAI credentials for LLM providers.|
+|`requests-ca-bundle`||Path to a CA bundle when routing through corporate proxies.|
+|`dry-run`||When `true`, the action prints the Mergebot command instead of running it (useful for CI validation).|
 
 ## Outputs
 
@@ -100,8 +100,8 @@ docker run --rm \
 ## Versioning & Marketplace
 
 1. Merge changes to `main`.
-2. If a new Mergebot image is available, bump `MERGEBOT_VERSION` in `Dockerfile` (Dependabot will usually open this PR).
-3. Tag semantic versions (`v1.0.0`) and move the major tag (`v1`) forward.
-4. Publish the action to the GitHub Marketplace under the “Code Review” and “Continuous Integration” categories.
+1. If a new Mergebot image is available, bump `MERGEBOT_VERSION` in `Dockerfile` (Dependabot will usually open this PR).
+1. Tag semantic versions (`v1.0.0`) and move the major tag (`v1`) forward.
+1. Publish the action to the GitHub Marketplace under the “Code Review” and “Continuous Integration” categories.
 
 Pin to a major version (`@v1`) for stability, or to a full tag/commit for reproducibility.
