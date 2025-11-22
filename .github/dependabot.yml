@@ -5,8 +5,9 @@ updates:
     schedule:
       interval: weekly
     groups:
-      docker-minor:
+      docker-all:
         update-types:
+          - major
           - minor
           - patch
 

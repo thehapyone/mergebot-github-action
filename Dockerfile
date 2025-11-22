@@ -1,5 +1,6 @@
 # Base Mergebot runtime image includes the CLI and dependencies.
-FROM thehapyone/mergebot:latest
+ARG MERGEBOT_VERSION=v0.2.0
+FROM thehapyone/mergebot:${MERGEBOT_VERSION}
 
 WORKDIR /action
 

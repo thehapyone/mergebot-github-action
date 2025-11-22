@@ -3,7 +3,7 @@
 ![Continuous Integration](https://github.com/thehapyone/mergebot-github-action/actions/workflows/ci.yml/badge.svg)
 ![Lint](https://github.com/thehapyone/mergebot-github-action/actions/workflows/linter.yml/badge.svg)
 
-Reusable GitHub Action that runs the official [`thehapyone/mergebot`](https://github.com/thehapyone/mergebot) container inside your workflows. Point it at your Mergebot config (or let it autodetect the current repo) and it will execute `mergebot ondemand` with your GitHub App credentials.
+Reusable GitHub Action that runs the official [`thehapyone/mergebot`](https://github.com/thehapyone/Mergebot) container inside your workflows. Point it at your Mergebot config (or let it autodetect the current repo) and it will execute `mergebot ondemand` with your GitHub App credentials. The action image is pinned to `thehapyone/mergebot:v0.2.0` for deterministic runs, and Dependabot is configured to open upgrade PRs when new tags are pushed.
 
 > **Prerequisites**
 >
@@ -100,7 +100,8 @@ docker run --rm \
 ## Versioning & Marketplace
 
 1. Merge changes to `main`.
-2. Tag semantic versions (`v1.0.0`) and move the major tag (`v1`) forward.
-3. Publish the action to the GitHub Marketplace under the “Code Review” and “Continuous Integration” categories.
+2. If a new Mergebot image is available, bump `MERGEBOT_VERSION` in `Dockerfile` (Dependabot will usually open this PR).
+3. Tag semantic versions (`v1.0.0`) and move the major tag (`v1`) forward.
+4. Publish the action to the GitHub Marketplace under the “Code Review” and “Continuous Integration” categories.
 
 Pin to a major version (`@v1`) for stability, or to a full tag/commit for reproducibility.
